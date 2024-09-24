@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import myImage from '@/public/images/authors/Ayele_G.jpg';
+import myImage from '../public/images/authors/Ayele_G.jpg';
 
 export default function Intro() {
   return (
