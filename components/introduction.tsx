@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import myImage from '/images/authors/AyeleG.jpg';
+import myImage from '../public/images/authors/AyeleG.jpg'; // Adjusted path
 
 
 export default function Intro() {
@@ -20,10 +20,14 @@ export default function Intro() {
       <div className='relative flex flex-col items-center'>
 
         
-      <div>
-      <img src="/images/authors/AyeleG.jpg" alt="Ayele G" />
-      <h1>Hello, I'm Ayele Gobezie</h1>
-    </div>
+        <Image
+          className='rounded-full border-4 border-gray-300 shadow-lg transform transition-transform duration-300 hover:scale-105 hover:rotate-3'
+          src={myImage}
+          alt='Ayele Gobezie'
+          width={175}
+          height={175}
+          priority
+        />
         <h2 className='mt-4 text-xl font-semibold text-black-800'>Ayele Gobezie</h2>
         <p className='text-sm font-semibold text-black-600'>Web Developer & Lecturer</p> {/* Optional subtitle */}
       </div>
