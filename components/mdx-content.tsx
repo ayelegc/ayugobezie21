@@ -1,7 +1,7 @@
-import { JSX } from 'react'
-import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote/rsc'
-import Counter from '@/components/counter'
-import { DetailedHTMLProps, HTMLAttributes } from 'react'
+import { JSX } from 'react';
+import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote/rsc';
+import Counter from '@/components/counter';
+import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
 function Code({
   children,
@@ -9,21 +9,20 @@ function Code({
 }: DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>) {
   const codeHTML: string = "<code>Example</code>";
 
-  return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
+  return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
 }
 
-const components = {
+// Define the components object at the top level
+const defaultComponents = {
   code: Code, // Now properly typed as an HTML component
-  Counter
-}
+  Counter,
+};
 
 export default function MDXContent(
   props: JSX.IntrinsicAttributes & MDXRemoteProps
 ) {
-  return (
-    <MDXRemote
-      {...props}
-      components={{ ...components, ...(props.components || {}) }}
-    />
-  )
+  // Merge the default components with any components passed via props
+  const mergedComponents = { ...defaultComponents, ...(props.components || {}) };
+
+  return <MDXRemote {...props} components={mergedComponents} />;
 }

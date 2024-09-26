@@ -17,6 +17,8 @@ export default function Intro() {
           Additionally, I train in Oracle database management. I possess strong communication skills and a collaborative mindset.
         </p>
       </div>
+
+    
       <div className='relative flex flex-col items-center'>
 
         
@@ -30,6 +32,7 @@ export default function Intro() {
         />
         <h2 className='mt-4 text-xl font-semibold text-black-800'>Ayele Gobezie</h2>
         <p className='text-sm font-semibold text-black-600'>Web Developer & Lecturer</p> {/* Optional subtitle */}
+  
       </div>
     </section>
   );

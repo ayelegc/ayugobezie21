@@ -54,21 +54,21 @@ export default function Footer() {
   return (
     <footer className='py-8'>
       <div className='container max-w-3xl'>
-        <div className='flex justify-between items-center'>
-          <div className='text-left'>
+        {/* Mobile view: three rows */}
+        <div className='flex flex-col items-center space-y-6 md:flex-row md:space-y-0 md:justify-between'>
+          
+          {/* Address Section */}
+          <div className='text-center md:text-left'>
             <p className='text-xs leading-5 text-black-foreground'>
-              &copy; {new Date().getFullYear()} Ayele Gobezie. All Rights Reserved
+              Address: Addis Ababa, Ethiopia
+            </p>
+            <p className='text-xs leading-5 text-black-foreground'>
+              Phone: +251943295750
             </p>
           </div>
-          <div className='text-center flex flex-col items-center'>
-            <p className='text-xs leading-5 text-black-foreground'>
-              Address: [Addis Ababa, Ethiopia]
-            </p>
-            <p className='text-xs leading-5 text-black-foreground'>
-              Phone: [+251943295750]
-            </p>
-          </div>
-          <div className='flex justify-end space-x-6'>
+
+          {/* Social Links Section */}
+          <div className='flex space-x-6'>
             {navigation.map(item => (
               <a
                 key={item.name}
@@ -81,6 +81,13 @@ export default function Footer() {
                 <item.icon aria-hidden='true' className='h-5 w-5' />
               </a>
             ))}
+          </div>
+
+          {/* Copyright Section */}
+          <div className='text-center'>
+            <p className='text-xs leading-5 text-black-foreground'>
+              &copy; {new Date().getFullYear()} Ayele Gobezie. All Rights Reserved.
+            </p>
           </div>
         </div>
       </div>
