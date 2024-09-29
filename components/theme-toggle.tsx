@@ -1,39 +1,32 @@
 'use client';
-
 import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
-
 import { Button } from '@/components/ui/button';
-import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
-
+import { FiMoon, FiSun } from 'react-icons/fi';  
 export function ThemeToggle() {
   const { setTheme, resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
+  const [isMounted, setIsMounted] = useState(false);
   useEffect(() => {
-    setMounted(true);
+    setIsMounted(true);
   }, []);
-
-  if (!mounted) {
-    return null;
-  }
-
+  if (!isMounted) return null;
+  const toggleTheme = () => {
+    setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
+  };
+  const ThemeIcon = resolvedTheme === 'light' ? FiSun : FiMoon;
   return (
     <Button
-      size='sm'
-      variant='outline' // Changed to outline for a more professional look
-      onClick={() => {
-        setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
-      }}
-      className='flex items-center justify-center transition-colors duration-300 ease-in-out hover:bg-gray-200 dark:hover:bg-gray-700' // Added hover effects
-      aria-label='Toggle theme'
+      size="sm"
+      variant="outline"
+      onClick={toggleTheme}
+      className="flex items-center justify-center transition-colors duration-300 ease-in-out hover:bg-gray-200 dark:hover:bg-gray-700"
+      aria-label="Toggle theme"
     >
-      {resolvedTheme === 'dark' ? (
-        <SunIcon className='w-5 h-5 text-orange-500' /> 
-      ) : (
-        <MoonIcon className='w-5 h-5 text-blue-700' />
-      )}
-      <span className='sr-only'>Toggle theme</span>
+      <ThemeIcon 
+        className="w-5 h-5 text-orange-500"  
+        aria-hidden="true"
+      />
+      <span className="sr-only">Theme</span>
     </Button>
   );
 }
