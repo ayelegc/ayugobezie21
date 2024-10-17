@@ -8,12 +8,13 @@ export default function Intro() {
           I&apos;m Ayele,
         </h1>
         <p className='mt-5 text-sm text-black-800 leading-relaxed text-justify'>
-        I possess strong programming skills and have extensive experience teaching web programming and database management. 
-        For over six years, I have actively mentored undergraduate students on various industrial projects, relishing opportunities that foster my growth as a developer. 
-        Additionally, I provide training in Oracle database management. 
-        My empathetic approach, combined with a genuine passion for web development, is complemented by strong communication skills and a collaborative mindset. 
-        I am deeply committed to developing high-quality full-stack web applications and sharing my knowledge with others.
-        </p>
+  I possess strong programming skills and have extensive experience teaching web programming and database management. 
+  For over six years, I have actively mentored undergraduate students on various industrial projects, relishing opportunities that foster my growth as a developer. 
+  Additionally, I provide training in Oracle database management. 
+  My empathetic approach, combined with a genuine passion for web development, is complemented by strong communication skills and a collaborative mindset. 
+  I am deeply committed to developing high-quality full-stack web applications and sharing my knowledge with others.
+</p>
+
       </div>
       <div className='relative flex flex-col items-center'>
         <Image

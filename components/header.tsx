@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -12,7 +12,9 @@ export default function Header() {
   const toggleDrawer = () => {
     setDrawerOpen((prev) => !prev);
   };
+
   const isActive = (path: string) => (pathname === path ? 'text-gold font-bold' : '');
+
   const menuItems = [
     { href: '/', label: 'Home' },
     { href: '/posts', label: 'TechPosts' },
@@ -21,20 +23,28 @@ export default function Header() {
     { href: 'https://drive.google.com/file/d/1hGMZzv8OMmYPRjJ01mcLi25c9pRi_OxX/view?usp=sharing', label: 'Download CV', external: true },
   ];
 
+  // Specify the type for the onClickHandler parameter
   const renderMenuItems = (onClickHandler?: () => void) => (
     menuItems.map(({ href, label, external }) => (
       <li key={href} className={`transition-colors hover:text-foreground/80 ${isActive(href)}`}>
-        <Link href={href} target={external ? '_blank' : undefined} onClick={external ? onClickHandler : undefined}>
+        <Link
+          href={href}
+          target={external ? '_blank' : undefined}
+          onClick={() => {
+            if (onClickHandler) onClickHandler();
+          }}
+        >
           {label}
         </Link>
       </li>
     ))
   );
+
   return (
     <header className='fixed inset-x-0 top-0 z-50 bg-background/75 py-4 backdrop-blur-md shadow-lg'>
       <nav className='container flex max-w-3xl items-center justify-between'>
-              <button 
-          className='md:hidden p-2 focus:outline-none' 
+        <button 
+          className='md:hidden text-2xl p-3 focus:outline-none' 
           onClick={toggleDrawer}
           aria-label={isDrawerOpen ? 'Close menu' : 'Open menu'}
         >
@@ -48,6 +58,7 @@ export default function Header() {
           <ThemeToggle />
         </div>
       </nav>
+
       {isDrawerOpen && (
         <div className='fixed inset-0 z-40 bg-black/50 md:hidden' onClick={toggleDrawer}>
           <div className='absolute top-0 right-0 w-64 h-full bg-background p-4' onClick={(e) => e.stopPropagation()}>
