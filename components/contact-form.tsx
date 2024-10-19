@@ -1,5 +1,4 @@
 'use client'
-
 import { z } from 'zod'
 import { toast } from 'sonner'
 import { SubmitHandler, useForm } from 'react-hook-form'
@@ -9,9 +8,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { sendEmail } from '@/lib/actions'
-
 type Inputs = z.infer<typeof ContactFormSchema>
-
 export default function ContactForm() {
   const {
     register,
@@ -26,7 +23,6 @@ export default function ContactForm() {
       message: ''
     }
   })
-
   const processForm: SubmitHandler<Inputs> = async data => {
     const result = await sendEmail(data)
 
@@ -34,19 +30,14 @@ export default function ContactForm() {
       toast.error('An error occurred! Please try again.')
       return
     }
-
     toast.success('Message sent successfully!')
     reset()
   }
-
-  // Clear form function
   const handleClear = () => {
     reset()
   }
-
   return (
     <section className='relative isolate'>
-      {/* Background pattern */}
       <svg
         className='absolute inset-0 -z-10 h-full w-full stroke-zinc-200 opacity-75 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)] dark:stroke-zinc-700'
         aria-hidden='true'
@@ -80,8 +71,6 @@ export default function ContactForm() {
           fill='url(#83fd4e5a-9d52-42fc-97b6-718e5d7ee527)'
         />
       </svg>
-
-      {/* Form */}
       <div className='relative'>
         <form
           onSubmit={handleSubmit(processForm)}
@@ -98,15 +87,12 @@ export default function ContactForm() {
                 autoComplete='given-name'
                 {...register('name')}
               />
-
               {errors.name?.message && (
                 <p className='ml-1 mt-2 text-sm text-rose-400'>
                   {errors.name.message}
                 </p>
               )}
             </div>
-
-            {/* Email */}
             <div>
               <Input
                 type='email'
@@ -122,15 +108,12 @@ export default function ContactForm() {
                 </p>
               )}
             </div>
-
-            {/* Message */}
             <div className='sm:col-span-2'>
               <Textarea
                 rows={4}
                 placeholder='Message'
                 {...register('message')}
               />
-
               {errors.message?.message && (
                 <p className='ml-1 mt-2 text-sm text-rose-400'>
                   {errors.message.message}
@@ -154,7 +137,6 @@ export default function ContactForm() {
               Clear
             </Button>
           </div>
-         
         </form>
       </div>
     </section>

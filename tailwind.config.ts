@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss";
 import { fontFamily } from 'tailwindcss/defaultTheme';
 
 const config: Config = {
-  darkMode: ["class"], // Enable dark mode via class
+  darkMode: ["class"], 
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -63,7 +63,8 @@ const config: Config = {
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))',
         },
-        gold: '#FFD700', // Added gold color
+        //gold: '#FFD700', // Added gold color
+        gold: '#FFC300',
         lightText: '#FFFFFF', // Light text color for dark backgrounds
         darkText: '#000000', // Dark text color for light backgrounds
         // Define light and dark text colors

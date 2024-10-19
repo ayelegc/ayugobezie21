@@ -5,24 +5,20 @@ import MDXContent from '@/components/mdx-content'
 import { getPosts, getPostBySlug } from '@/lib/posts'
 import { ArrowLeftIcon } from '@radix-ui/react-icons'
 import { notFound } from 'next/navigation'
-// Define the type for the params object
 type PostProps = {
   params: {
     slug: string
   }
 }
-// Generate static params for each post slug
 export async function generateStaticParams() {
   const posts = await getPosts()
   const slugs = posts.map(post => ({ slug: post.slug }))
 
   return slugs
 }
-// The Post component that takes the slug from params
 export default async function Post({ params }: PostProps) {
   const { slug } = params
   const post = await getPostBySlug(slug)
-  // If post is not found, trigger the notFound() function
   if (!post) {
     return notFound()
   }
@@ -38,7 +34,6 @@ export default async function Post({ params }: PostProps) {
           <ArrowLeftIcon className="h-5 w-5" />
           <span>Back to Posts</span>
         </Link>
-        {/* Check if image exists before rendering */}
         {image && (
           <div className="relative mb-6 h-96 w-full overflow-hidden rounded-lg">
             <Image

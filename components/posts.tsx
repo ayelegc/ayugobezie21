@@ -1,8 +1,6 @@
 import Link from 'next/link'
-
 import { PostMetadata } from '@/lib/posts'
 import { formatDate } from '@/lib/utils'
-
 export default function Posts({ posts }: { posts: PostMetadata[] }) {
   return (
     <ul className='flex flex-col gap-8'>
@@ -18,7 +16,6 @@ export default function Posts({ posts }: { posts: PostMetadata[] }) {
                 {post.summary}
               </p>
             </div>
-
             {post.publishedAt && (
               <p className='mt-1 text-sm font-light'>
                 {formatDate(post.publishedAt)}

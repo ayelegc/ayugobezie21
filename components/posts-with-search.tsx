@@ -1,24 +1,19 @@
 'use client'
-
 import { useState } from 'react'
 import { PostMetadata } from '@/lib/posts'
-
 import Posts from '@/components/posts'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Cross2Icon } from '@radix-ui/react-icons'
-
 export default function PostsWithSearch({ posts }: { posts: PostMetadata[] }) {
   const [query, setQuery] = useState('')
   const filtered = posts.filter(post =>
     post.title?.toLowerCase().includes(query.toLowerCase())
   )
-
   const isFiltered = query.length > 0
   function resetFilter() {
     setQuery('')
   }
-
   return (
     <div>
       <div className='mb-12 flex items-center gap-3'>

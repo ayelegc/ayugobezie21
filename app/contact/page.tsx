@@ -1,11 +1,9 @@
 import ContactForm from '@/components/contact-form'
-
 export default function Contact() {
   return (
     <section className='pb-24 pt-40'>
       <div className='container max-w-3xl'>
-        <h2 className='title'>Let&apos;s talk, send me a Message </h2>
-
+        <h2 className='title'>Let&apos;s talk, send your message </h2>
         <ContactForm />
       </div>
     </section>
