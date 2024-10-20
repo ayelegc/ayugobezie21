@@ -3,15 +3,12 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ThemeToggle } from './theme-toggle';
-
 export default function Header() {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
   const pathname = usePathname();
-
   const toggleDrawer = () => {
     setDrawerOpen((prev) => !prev);
   };
-
   const isActive = (path: string) =>
     pathname === path ? 'text-gold font-bold' : '';
 
@@ -26,7 +23,6 @@ export default function Header() {
       external: true,
     },
   ];
-
   const renderMenuItems = (onClickHandler?: () => void) =>
     menuItems.map(({ href, label, external }) => (
       <li
@@ -50,7 +46,6 @@ export default function Header() {
         </Link>
       </li>
     ));
-
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-background/75 py-4 backdrop-blur-md shadow-lg">
       <nav className="container flex max-w-3xl items-center justify-between">

@@ -69,7 +69,6 @@ export default function Footer() {
   </svg>
   <span className="hover:underline">Address: Addis Ababa, Ethiopia</span>
 </div>
-
 <div className='flex items-center space-x-2 text-xs leading-5 text-black-foreground hover:text-gold transition-colors duration-300 font-bold'>
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +84,6 @@ export default function Footer() {
   </svg>
   <span className="hover:underline">Phone: +251943295750</span>
 </div>
-
 <div className='flex items-center space-x-2 text-xs leading-5 text-black-foreground hover:text-gold transition-colors duration-300 font-bold'>
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -104,7 +102,6 @@ export default function Footer() {
   </svg>
   <span className="hover:underline">Email: ayele.gobezie@gmail.com</span>
 </div>
-
           </div> 
           <div className='flex space-x-6'>
             {navigation.map(item => (
@@ -125,9 +122,6 @@ export default function Footer() {
     &copy; {new Date().getFullYear()} Ayele Gobezie. All Rights Reserved.
   </p>
 </div>
-
-
-
         </div> 
       </div> 
     </footer>

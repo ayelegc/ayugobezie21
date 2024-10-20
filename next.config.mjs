@@ -6,3 +6,5 @@ const nextConfig = {
     reactStrictMode: true,
   };
   export default nextConfig;
+
+  // next.config.mjs
